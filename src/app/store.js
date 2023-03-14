@@ -1,16 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import characterReducer from "../features/characters/characterSlice"
-import {hpApi,jsonApi} from "../features/apiSlice"
+import {postsApi,jsonApi} from "../features/apiSlice"
 
 const store = configureStore({
   reducer: {
-    characters:characterReducer,
-    [hpApi.reducerPath]: hpApi.reducer,
-    [jsonApi.reducerPath]: jsonApi.reducer,
+    characters: characterReducer,
+    [postsApi.reducerPath]: postsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(hpApi.middleware).concat(jsonApi.middleware),
-  
+    getDefaultMiddleware().concat(postsApi.middleware),
 });
 
 export default store

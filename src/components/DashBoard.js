@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useGetAllCharactersQuery, useGetCommentsQuery } from "../features/apiSlice"
+import { useGetAllPostsQuery } from "../features/apiSlice"
 
 const Wrapper=styled.div`
 margin: 50px auto;
@@ -8,6 +8,7 @@ outline: 1px solid salmon;
 display: flex;
 flex-wrap: wrap;
 gap: 20px;
+background-color: aqua;
 `
 const Card=styled.div`
 width:calc((100% - 40px)/3);
@@ -36,13 +37,14 @@ font-weight: bold;
 `
 
 function DashBoard(){
-  const { data, error, isLoading:isLoading } = useGetAllCharactersQuery("Gryffindor");
-  // console.log(useGetAllCharatersQuery());
+  console.log(useGetAllPostsQuery())
+
 
 
  
   return(
     <Wrapper>
+      <div>hello</div>
       {/* {data?.map((item)=>{
         return (
           <Card key={item.id}>

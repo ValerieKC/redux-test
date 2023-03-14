@@ -1,49 +1,28 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const hpApi = createApi({
-  reducerPath: "hpApi",
+// export const hpApi = createApi({
+//   reducerPath: "hpApi",
+//   baseQuery: fetchBaseQuery({
+//     baseUrl: `https://hp-api.onrender.com/api/characters/`,
+//   }),
+//   endpoints: (builder) => ({
+//     getAllCharacters: builder.query({
+//       query: () => `house/Gryffindor`,
+//     }),
+//   }),
+// });
+
+export const postsApi = createApi({
+  reducerPath: "postsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://hp-api.onrender.com/api/characters/`,
+    baseUrl: "https://jsonplaceholder.typicode.com/",
   }),
   endpoints: (builder) => ({
-    getAllCharacters: builder.query({
-      query: (name) => `house/${name}`,
+    getAllPosts: builder.query({
+      query: () => "posts", // https://jsonplaceholder.typicode.com/posts
     }),
   }),
 });
 
-export const jsonApi = createApi({
-  reducerPath: "jsonApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: `http://localhost:3500/`,
-  }),
-  endpoints: (builder) => ({
-    getComments: builder.query({
-      query: () => `posts`,
-    }),
-    addComments: builder.mutation({
-      query: (comment) => ({
-        url: `posts`,
-        method: "POST",
-        body: comment,
-      }),
-    }),
-    updateComments: builder.mutation({
-      query: (comment) => ({
-        url: `posts/${comment.id}`,
-        method: "PATCH",
-        body: comment,
-      }),
-    }),
-    deleteComments: builder.mutation({
-      query: ({id}) => ({
-        url: `posts/${id}`,
-        method: "DELETE",
-        body: id,
-      }),
-    }),
-  }),
-});
 
-export const {useGetAllCharactersQuery}=hpApi
-export const { useGetCommentsQuery, useAddCommentsMutation, useUpdateCommentsMutation, useDeleteCommentsMutation } = jsonApi;
+export const {useGetAllPostsQuery}=postsApi

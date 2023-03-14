@@ -56,11 +56,11 @@ const Header=()=>{
     <Wrapper>
       <Container>
         <Title>Redux Message Board</Title>
-        <BtnDiv>
-          {/* {house.map((item) => (
+        {/* <BtnDiv>
+          {house.map((item) => (
             <Btn key={item}>{item}</Btn>
-          ))} */}
-        </BtnDiv>
+          ))}
+        </BtnDiv> */}
       </Container>
     </Wrapper>
   );
