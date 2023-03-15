@@ -1,18 +1,18 @@
-import {createSlice,createAsyncThunk} from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState={
-  posts:[],
-  status:"idle",
-  error:null
-}
+const initialState = {
+  house: "Gryffindor",
+};
 
-
-const characterSlice=createSlice({
-  name:"character",
+const characterSlice = createSlice({
+  name: "character",
   initialState,
-  reducers:{
+  reducers: {
+    setHouse: (state, action) => {
+      state.house = action.payload;
+    },
+  },
+});
+export const { setHouse } = characterSlice.actions;
 
-  }
-})
-
-export default characterSlice.reducer
+export default characterSlice.reducer;

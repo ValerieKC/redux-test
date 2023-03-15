@@ -9,7 +9,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-      <Route index element={<DashBoard />} />
+        <Route index element={<DashBoard />} />
+        <Route path="house/:houseText" element={<DashBoard />} />
       </Route>
     </Routes>
   </BrowserRouter>

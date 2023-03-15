@@ -1,28 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// export const hpApi = createApi({
-//   reducerPath: "hpApi",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: `https://hp-api.onrender.com/api/characters/`,
-//   }),
-//   endpoints: (builder) => ({
-//     getAllCharacters: builder.query({
-//       query: () => `house/Gryffindor`,
-//     }),
-//   }),
-// });
-
-export const postsApi = createApi({
-  reducerPath: "postsApi",
+export const hpApi = createApi({
+  reducerPath: "hpApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://jsonplaceholder.typicode.com/",
+    baseUrl: `https://hp-api.onrender.com/api/characters`,
   }),
   endpoints: (builder) => ({
-    getAllPosts: builder.query({
-      query: () => "posts", // https://jsonplaceholder.typicode.com/posts
+    getAllCharacters:builder.query({
+      query:()=>""
+    }),
+    getHouseCharacters: builder.query({
+      query: (houseName) => `/house/${houseName}`,
     }),
   }),
 });
 
 
-export const {useGetAllPostsQuery}=postsApi
+
+export const {useGetAllCharactersQuery,useGetHouseCharactersQuery}=hpApi
