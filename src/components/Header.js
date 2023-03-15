@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setHouse } from "../features/characters/characterSlice";
+
 import { setRoutesName } from "../features/routeSlice";
 
 const Wrapper = styled.div`
@@ -67,7 +66,6 @@ const Header = () => {
   const pageName = useSelector((state) => state.routePathName.routePath);
 
   const clickHandler = (houseName) => {
-    dispatch(setHouse(houseName));
     if(houseName){
     dispatch(setRoutesName(`/house/${houseName}`))
     }else{
