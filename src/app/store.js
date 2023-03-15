@@ -1,11 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import postsReducer from "../features/posts/postsSlice";
-import usersReducer from "../features/users/usersSlice";
+import routeReducer from "../features/routeSlice"
+import {hpApi} from "../features/apiSlice"
 
-export default configureStore({
+const store = configureStore({
   reducer: {
-    posts: postsReducer,
-    users: usersReducer,
+    routePathName:routeReducer,
+    [hpApi.reducerPath]: hpApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(hpApi.middleware),
 });
+
+export default store
+
+
